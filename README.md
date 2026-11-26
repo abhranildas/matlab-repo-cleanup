@@ -2,10 +2,16 @@
 
 A Claude Code plugin for cleaning up a whole MATLAB repo in six stages, tracked in one plan document (`docs/repo-cleanup.md`):
 
-1. **Style**: snake_case renames, headers, formatting. Verified automatically: the parse tree must be unchanged once renames are reversed (`tools/check_stage1.m`).
-2. **Hygiene**: four whitelisted fixes, verified against a golden-output harness.
-3. **Organize**, 4. **Bugs**, 5. **Speed**: tiered findings lists, worked one item at a time.
-6. **Closing**: a final repo-wide check.
+| # | Stage | What changes | How it's verified |
+|---|---|---|---|
+| 1 | **Style** | snake_case renames, header docs, formatting | Parse tree unchanged once renames are reversed (`tools/check_stage1.m`) |
+| 2 | **Hygiene** | Four whitelisted fixes: missing `;`, `find` → logical indexing, preallocation, unused assignments | Pattern check plus a golden-output harness |
+| 3 | **Organize** | Signature changes, merging duplicates, reorders | Reviewed one item at a time |
+| 4 | **Bugs** | Bug fixes found during stages 1–3 | Reviewed one item at a time |
+| 5 | **Speed** | Optimizations | Golden output plus before/after timings |
+| 6 | **Closing** | Nothing new: a final repo-wide check | Re-runs the stage 1–2 checks across the whole repo |
+
+Stages 3–5 are findings lists rated 🔴/🟠/🟡. Anything found earlier is written down, not fixed on the spot.
 
 It ships the `matlab-repo-cleanup` skill and five subagents (`matlab-cleanup-lead`, `-mechanical`, `-escalation`, `-stage3`, `-stage3-mechanical`).
 
