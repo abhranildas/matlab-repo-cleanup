@@ -1,0 +1,11 @@
+{
+  "name": "abhranildas",
+  "owner": { "name": "Abhranil Das" },
+  "plugins": [
+    {
+      "name": "matlab-cleanup",
+      "source": "./",
+      "description": "Whole-repo MATLAB cleanup in six verified stages, with tranche subagents."
+    }
+  ]
+}

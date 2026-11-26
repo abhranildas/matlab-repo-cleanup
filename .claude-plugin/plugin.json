@@ -1,0 +1,8 @@
+{
+  "name": "matlab-cleanup",
+  "version": "1.0.0",
+  "description": "Whole-repo MATLAB cleanup in six verified stages (Style, Hygiene, Organize, Bugs, Speed, Closing), with an AST-equality checker and dedicated tranche subagents.",
+  "author": { "name": "Abhranil Das" },
+  "repository": "https://github.com/abhranildas/matlab-repo-cleanup",
+  "keywords": ["matlab", "refactoring", "cleanup", "readability"]
+}
